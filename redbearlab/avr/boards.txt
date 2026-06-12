@@ -1,0 +1,81 @@
+# RedBearLab Blend Micro - soporte para Arduino IDE 2.x / arduino-cli
+# Rescatado y modernizado desde https://github.com/RedBearLab/Blend
+# Core referenciado: arduino:avr (debe estar instalado)
+
+##############################################################
+
+blendmicro8.name=Blend Micro 3.3V/8MHz
+
+blendmicro8.vid.0=0x03EB
+blendmicro8.pid.0=0x2404
+# modernizacion: identificacion de puerto para IDE 2.x
+blendmicro8.upload_port.0.vid=0x03EB
+blendmicro8.upload_port.0.pid=0x2404
+
+blendmicro8.upload.tool=arduino:avrdude
+# modernizacion: herramienta de subida para pluggable discovery
+blendmicro8.upload.tool.serial=arduino:avrdude
+blendmicro8.upload.protocol=avr109
+blendmicro8.upload.maximum_size=28672
+blendmicro8.upload.maximum_data_size=2560
+blendmicro8.upload.speed=57600
+blendmicro8.upload.disable_flushing=true
+blendmicro8.upload.use_1200bps_touch=true
+blendmicro8.upload.wait_for_upload_port=true
+
+blendmicro8.bootloader.tool=arduino:avrdude
+blendmicro8.bootloader.low_fuses=0xff
+blendmicro8.bootloader.high_fuses=0xd8
+blendmicro8.bootloader.extended_fuses=0xcf
+blendmicro8.bootloader.file=caterina/Caterina-BlendMicro.hex
+blendmicro8.bootloader.unlock_bits=0x3F
+blendmicro8.bootloader.lock_bits=0x2F
+
+blendmicro8.build.mcu=atmega32u4
+blendmicro8.build.f_cpu=8000000L
+blendmicro8.build.vid=0x03EB
+blendmicro8.build.pid=0x2404
+blendmicro8.build.usb_product="BlendMicro 8MHz"
+blendmicro8.build.board=BLEND_MICRO_8MHZ
+blendmicro8.build.core=arduino:arduino
+blendmicro8.build.variant=blendmicro8
+blendmicro8.build.extra_flags={build.usb_flags}
+
+##############################################################
+
+blendmicro16.name=Blend Micro 3.3V/16MHz (overclock)
+
+blendmicro16.vid.0=0x03EB
+blendmicro16.pid.0=0x2404
+# modernizacion: identificacion de puerto para IDE 2.x
+blendmicro16.upload_port.0.vid=0x03EB
+blendmicro16.upload_port.0.pid=0x2404
+
+blendmicro16.upload.tool=arduino:avrdude
+# modernizacion: herramienta de subida para pluggable discovery
+blendmicro16.upload.tool.serial=arduino:avrdude
+blendmicro16.upload.protocol=avr109
+blendmicro16.upload.maximum_size=28672
+blendmicro16.upload.maximum_data_size=2560
+blendmicro16.upload.speed=57600
+blendmicro16.upload.disable_flushing=true
+blendmicro16.upload.use_1200bps_touch=true
+blendmicro16.upload.wait_for_upload_port=true
+
+blendmicro16.bootloader.tool=arduino:avrdude
+blendmicro16.bootloader.low_fuses=0xff
+blendmicro16.bootloader.high_fuses=0xd8
+blendmicro16.bootloader.extended_fuses=0xcf
+blendmicro16.bootloader.file=caterina/Caterina-BlendMicro.hex
+blendmicro16.bootloader.unlock_bits=0x3F
+blendmicro16.bootloader.lock_bits=0x2F
+
+blendmicro16.build.mcu=atmega32u4
+blendmicro16.build.f_cpu=16000000L
+blendmicro16.build.vid=0x03EB
+blendmicro16.build.pid=0x2404
+blendmicro16.build.usb_product="BlendMicro 16MHz"
+blendmicro16.build.board=BLEND_MICRO_16MHZ
+blendmicro16.build.core=arduino:arduino
+blendmicro16.build.variant=blendmicro16
+blendmicro16.build.extra_flags={build.usb_flags}
