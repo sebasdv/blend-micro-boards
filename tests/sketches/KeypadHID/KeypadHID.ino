@@ -24,7 +24,9 @@ void setup() {
   pinMode(13, OUTPUT);
 
   delay(1000);
+  Serial.begin(115200);  // CDC USB: no bloquear esperando monitor, el keypad debe funcionar solo
   Keyboard.begin();
+  Serial.println("KeypadHID listo");
 
   digitalWrite(13, HIGH);
   delay(100);
@@ -39,9 +41,12 @@ void procesar(int pin, bool &estado, char tecla) {
     estado = lectura;
     if (estado == LOW) {
       Keyboard.press(tecla);
+      Serial.print("press ");
     } else {
       Keyboard.release(tecla);
+      Serial.print("release ");
     }
+    Serial.println(tecla);
   }
 }
 
