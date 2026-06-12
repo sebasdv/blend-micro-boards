@@ -3,10 +3,10 @@
                      {
                          "name":  "redbearlab",
                          "maintainer":  "Comunidad (rescate RedBearLab)",
-                         "websiteURL":  "https://github.com/GHUSER/blend-micro-boards",
+                         "websiteURL":  "https://github.com/sebasdv/blend-micro-boards",
                          "email":  "sebasdv@gmail.com",
                          "help":  {
-                                      "online":  "https://github.com/GHUSER/blend-micro-boards"
+                                      "online":  "https://github.com/sebasdv/blend-micro-boards"
                                   },
                          "platforms":  [
                                            {
@@ -14,12 +14,12 @@
                                                "architecture":  "avr",
                                                "version":  "2.0.0",
                                                "category":  "Contributed",
-                                               "url":  "https://github.com/GHUSER/blend-micro-boards/releases/download/v2.0.0/redbearlab-avr-2.0.0.zip",
+                                               "url":  "https://github.com/sebasdv/blend-micro-boards/releases/download/v2.0.0/redbearlab-avr-2.0.0.zip",
                                                "archiveFileName":  "redbearlab-avr-2.0.0.zip",
                                                "checksum":  "SHA-256:22bad43a442e461b1920794d287fda0eca6fcff9861f8ae09d4252bb508910e0",
                                                "size":  "542663",
                                                "help":  {
-                                                            "online":  "https://github.com/GHUSER/blend-micro-boards"
+                                                            "online":  "https://github.com/sebasdv/blend-micro-boards"
                                                         },
                                                "boards":  [
                                                               {

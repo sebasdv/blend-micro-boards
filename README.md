@@ -12,7 +12,7 @@ oficial `arduino:avr`, por lo que no vuelve a romperse con las actualizaciones d
 1. Arduino IDE → **Archivo → Preferencias → URLs adicionales de gestor de placas**, añadir:
 
    ```
-   https://raw.githubusercontent.com/GHUSER/blend-micro-boards/master/package_redbearlab_index.json
+   https://raw.githubusercontent.com/sebasdv/blend-micro-boards/master/package_redbearlab_index.json
    ```
 
 2. **Herramientas → Placa → Gestor de placas**, buscar `Blend Micro` e instalar
