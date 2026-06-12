@@ -1,2 +1,9 @@
 name=RedBearLab AVR Boards
 version=2.0.0
+
+# La Blend Micro necesita el main.cpp de la variante: corrige el PLL USB (cristal de
+# 16 MHz con F_CPU=8 MHz) y el prescaler de reloj en el modo 16 MHz (overclock).
+# arduino-cli no compila fuentes de variantes con core referenciado, pero si enlaza
+# {build.path}/core/main.cpp.o como objeto directo; este hook lo reemplaza por el
+# main.cpp de la variante compilado con los mismos flags que el core.
+recipe.hooks.linking.prelink.1.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -mmcu={build.mcu} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {compiler.cpp.extra_flags} {build.extra_flags} "-I{build.core.path}" "-I{build.variant.path}" "{build.variant.path}/main.cpp" -o "{build.path}/core/main.cpp.o"
