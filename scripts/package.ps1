@@ -13,7 +13,25 @@ New-Item -ItemType Directory -Force $staging, $dist | Out-Null
 # El ZIP debe contener una unica carpeta raiz con la plataforma dentro.
 Copy-Item -Recurse "$root\redbearlab\avr\*" $staging
 if (Test-Path $zip) { Remove-Item -Force $zip }
-Compress-Archive -Path $staging -DestinationPath $zip
+
+# No usar Compress-Archive: en PS 5.1 genera entradas con '\' (invalido segun la
+# spec ZIP) y el extractor de arduino-cli puede fallar. Se crean las entradas con '/'.
+Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+# Resolver la ruta real: $env:TEMP puede ser una ruta corta 8.3 y descuadrar el recorte.
+$stagingFull = (Get-Item $staging).FullName
+$prefixLen = (Split-Path $stagingFull).Length + 1
+$fs = [System.IO.File]::Open($zip, 'Create')
+$za = New-Object System.IO.Compression.ZipArchive($fs, 'Create')
+try {
+    Get-ChildItem -Recurse -File $staging | ForEach-Object {
+        $entry = $_.FullName.Substring($prefixLen).Replace('\', '/')
+        [void][System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($za, $_.FullName, $entry)
+    }
+} finally {
+    $za.Dispose()
+    $fs.Dispose()
+}
 
 $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
 $size = (Get-Item $zip).Length
