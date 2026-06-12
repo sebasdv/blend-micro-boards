@@ -1,0 +1,42 @@
+{
+    "packages":  [
+                     {
+                         "name":  "redbearlab",
+                         "maintainer":  "Comunidad (rescate RedBearLab)",
+                         "websiteURL":  "https://github.com/GHUSER/blend-micro-boards",
+                         "email":  "sebasdv@gmail.com",
+                         "help":  {
+                                      "online":  "https://github.com/GHUSER/blend-micro-boards"
+                                  },
+                         "platforms":  [
+                                           {
+                                               "name":  "RedBearLab AVR Boards (Blend Micro)",
+                                               "architecture":  "avr",
+                                               "version":  "2.0.0",
+                                               "category":  "Contributed",
+                                               "url":  "https://github.com/GHUSER/blend-micro-boards/releases/download/v2.0.0/redbearlab-avr-2.0.0.zip",
+                                               "archiveFileName":  "redbearlab-avr-2.0.0.zip",
+                                               "checksum":  "SHA-256:fde2577e58702d7de694d9423db4cc1f0c2082a6867ad71ada37d11af4fb70a9",
+                                               "size":  "543423",
+                                               "help":  {
+                                                            "online":  "https://github.com/GHUSER/blend-micro-boards"
+                                                        },
+                                               "boards":  [
+                                                              {
+                                                                  "name":  "Blend Micro 3.3V/8MHz"
+                                                              },
+                                                              {
+                                                                  "name":  "Blend Micro 3.3V/16MHz (overclock)"
+                                                              }
+                                                          ],
+                                               "toolsDependencies":  [
+
+                                                                     ]
+                                           }
+                                       ],
+                         "tools":  [
+
+                                   ]
+                     }
+                 ]
+}
