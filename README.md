@@ -21,12 +21,29 @@ oficial `arduino:avr`, por lo que no vuelve a romperse con las actualizaciones d
    por defecto). Este paquete lo necesita.
 4. Para sketches de teclado/ratón USB, instala la librería oficial **Keyboard** (y/o
    **Mouse**) desde el Gestor de librerías — no viene incluida con el core.
-5. Selecciona **Blend Micro 3.3V/8MHz** (o 16MHz) y el puerto COM.
+5. Selecciona **Blend Micro 3.3V/8MHz** y el puerto COM (ver abajo por qué 8 MHz).
 
 > **Si tienes el paquete RedBearLab original instalado** (aparece como
 > `RedBear AVR Boards` / placas `RedBear:avr:*` en el Gestor de placas),
 > desinstálalo para evitar confusiones: ese es el paquete roto de IDE 1.x.
 > Este paquete usa el vendor `redbearlab`, así que no chocan entre sí.
+
+## ⚠️ Usa 8 MHz, no 16 MHz (importante)
+
+**Para uso confiable, selecciona siempre `Blend Micro 3.3V/8MHz`.**
+
+La Blend Micro tiene un cristal de 16 MHz pero funciona a **3.3 V**, y a ese voltaje
+el ATmega32U4 solo está especificado hasta **~10-11 MHz** (curva frecuencia–voltaje
+del datasheet: 8 MHz a 2.7 V … 16 MHz a 4.5 V). Por eso la opción **`3.3V/16MHz` está
+marcada como "(overclock)": corre el CPU ~50 % por encima de lo garantizado a 3.3 V.**
+
+Suele *parecer* que funciona, pero el CPU queda marginal y produce fallos
+intermitentes y difíciles de diagnosticar: lecturas de GPIO erráticas, teclas que se
+quedan "pegadas", glitches de timing, comportamiento que cambia según detalles
+irrelevantes. Si ves rarezas así, **lo primero es bajar a 8 MHz.**
+
+Usa 16 MHz solo si necesitas la velocidad, aceptas el riesgo y validas la estabilidad
+en tu chip concreto.
 
 ## Qué incluye
 
