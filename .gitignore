@@ -2,3 +2,18 @@ upstream/
 dist/
 tmp/
 build/
+
+# AI tooling artifacts
+.claude/
+.claude.json
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+GEMINI.md
+.cursor/
+.cursorrules
+.windsurfrules
+.aider*
+.continue/
+.github/copilot-instructions.md
+docs/superpowers/
